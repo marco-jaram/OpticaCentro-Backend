@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mtec.model.Customer;
@@ -37,7 +37,13 @@ public class CustomerController {
 	public Customer getUnaCustomer(@PathVariable Integer id) {
 		return customerService.findById(id);
 	}
-	
+	 // Nueva ruta para la búsqueda de clientes
+    @GetMapping("/cliente/buscar")
+    public List<Customer> buscarClientes(@RequestParam ("keyword") String keyword) {
+        return customerService.findByKeyword(keyword);
+    } 
+   
+
 	@PutMapping("/cliente/{id}")
 	public Customer modificar(@RequestBody Customer customer, @PathVariable Integer id) {
 	    Customer customerActual = customerService.findById(id);
@@ -48,7 +54,7 @@ public class CustomerController {
 	        customerActual.setTel(customer.getTel());
 	        customerActual.setEmail(customer.getEmail());
 	        customerActual.setLastVisitDate(customer.getLastVisitDate());
-	        customerActual.setNetxVisitDate(customer.getNetxVisitDate());
+	        customerActual.setNextVisitDate(customer.getNextVisitDate());
 	        customerActual.setNote(customer.getNote());
 	        // Actualizar otros campos según sea necesario
 	        
@@ -62,12 +68,7 @@ public class CustomerController {
 	    }
 	}
 
-	
 
-	
-	
-	
-	
 	@DeleteMapping("/cliente/{id}")
 		public void eliminar (@PathVariable Integer id) {
 		customerService.delete(id);

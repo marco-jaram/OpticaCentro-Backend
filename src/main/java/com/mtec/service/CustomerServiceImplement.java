@@ -19,8 +19,6 @@ private ICustomerRepository customerRepository;
 		return (List<Customer>) customerRepository.findAll();
 	}
 
-	
-	
 	@Override
 	public Customer save(Customer customer) {
 		
@@ -37,6 +35,15 @@ private ICustomerRepository customerRepository;
 	public void delete(Integer id) {
 		customerRepository.deleteById(id);
 		
+	}
+	@Override
+    public List<Customer> findByKeyword(String keyword) {
+        return customerRepository.findAll(keyword);
+    }
+
+	@Override
+	public List<Customer> findAll(String keyword) {
+		 return customerRepository.findAll(keyword);
 	}
 
 }

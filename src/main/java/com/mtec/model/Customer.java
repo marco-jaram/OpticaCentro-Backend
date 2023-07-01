@@ -22,8 +22,8 @@ public class Customer {
 	private String email;
 	@Column(name = "lastVisitDate")
 	private String lastVisitDate;
-	@Column(name = "netxVisitDate")
-	private String netxVisitDate;
+	@Column(name = "nextVisitDate")
+	private String nextVisitDate;
 	@Column(name = "note")
 	private String note;
 	
@@ -60,11 +60,11 @@ public class Customer {
 	public void setLastVisitDate(String lastVisitDate) {
 		this.lastVisitDate = lastVisitDate;
 	}
-	public String getNetxVisitDate() {
-		return netxVisitDate;
+	public String getNextVisitDate() {
+		return nextVisitDate;
 	}
-	public void setNetxVisitDate(String netxVisitDate) {
-		this.netxVisitDate = netxVisitDate;
+	public void setNextVisitDate(String netxVisitDate) {
+		this.nextVisitDate = netxVisitDate;
 	}
 	public String getNote() {
 		return note;
