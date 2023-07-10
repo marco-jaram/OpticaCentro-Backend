@@ -19,7 +19,7 @@ import com.mtec.service.ICustomerService;
 
 @RestController
 @CrossOrigin ("*")
-@RequestMapping("/")
+@RequestMapping("/api")
 public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
